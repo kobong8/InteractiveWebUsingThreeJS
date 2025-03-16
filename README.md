@@ -1,4 +1,4 @@
-Interative Web
+# Interative Web using Three.js
 
 - three js 실행을 위한 환경 구성
 
