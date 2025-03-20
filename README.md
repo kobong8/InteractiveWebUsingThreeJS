@@ -1,5 +1,7 @@
 # Interative Web using Three.js
 
+- 패스트 캠퍼스 [더 쉽고 편하게 만드는 3D 인터랙티브 웹 개발 파트2 github](https://github.com/chuhongkyu/fastcampus-r3f-part2)
+
 - three js 실행을 위한 환경 구성
 
 ```powershell
