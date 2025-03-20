@@ -42,9 +42,3 @@ added 11 packages, and audited 12 packages in 8s
 
 found 0 vulnerabilities
 ```
-
-### Part 2
-
-```powershell
-npm i
-```
