@@ -1,8 +1,11 @@
 ### Part 1
 
+- [TODO] npm create vite@latest example00 -- --template React 사용 가능 여부
+
+- [TODO] npm i, npm run dev, npm run build 의미
+
 #### example00
 
-- [TODO] npm create vite@latest example00 -- --template React 사용 가능 여부
 
 ```powershell
 npm create vite@latest example00                    
