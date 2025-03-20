@@ -6,7 +6,7 @@
 
 - [파트3 github](https://github.com/chuhongkyu/fastcampus-r3f-part3)
 
-- three js 실행을 위한 환경 구성
+### three js 실행을 위한 환경 구성
 
 ```powershell
 > npm create vite@latest ch02-threejs -- --template vanilla
@@ -41,4 +41,10 @@ added 11 packages, and audited 12 packages in 8s
   run `npm fund` for details
 
 found 0 vulnerabilities
+```
+
+### Part 2
+
+```powershell
+npm i
 ```
