@@ -14,17 +14,18 @@ function Box(props) {
   )
 }
 
-function Model(){
-  const glb = useLoader( GLTFLoader, "/models/earth.glb" );
-  console.log(glb);
+function Model(props){
+  const earth = useLoader( GLTFLoader, "/models/earth.glb" );
   return(
-    <></>
+    <mesh {...props}>
+      <primitive object={earth.scene}/>
+    </mesh>
   )
 }
 
 function Lights(){
-  const ref = useRef();
-  useHelper(ref, DirectionalLightHelper, 1, "red");
+  // const ref = useRef();
+  // useHelper(ref, DirectionalLightHelper, 1, "red");
   return(
     // <directionalLight ref={ref} position={[1, 3, -1]} intensity={3}/>
     <directionalLight position={[1, 3, -1]} intensity={3}/>
@@ -33,12 +34,12 @@ function Lights(){
 
 function App() {
   return (
-    <Canvas camera={{position: [0, 1, 2]}}>
+    <Canvas camera={{position: [0, 1, 5]}}>
         <color attach="background" args={["yellow"]}></color>
         <Lights/>
-        <Box rotation-y={1}/>
-        <Box position={[0, 0, -1]} rotation-y={1}/>
-        <Model/>
+        {/* <Box rotation-y={1}/>
+        <Box position={[0, 0, -1]} rotation-y={1}/> */}
+        <Model position={[0, -1, 0]}/>
     </Canvas>
   );
 }
