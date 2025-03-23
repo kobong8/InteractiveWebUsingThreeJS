@@ -1,5 +1,19 @@
+import { useHelper } from "@react-three/drei"
 import { Canvas, useLoader } from "@react-three/fiber"
+import { useRef } from "react"
+import { DirectionalLight, DirectionalLightHelper } from "three"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
+
+function Box(props) {
+  return(
+    <mesh {...props}>
+      <boxGeometry args={[1]}/>
+      {/* <meshBasicMaterial color={"hotpink"}/> */}
+      <meshStandardMaterial color={"hotpink"}/>
+
+    </mesh>
+  )
+}
 
 function Model(){
   const glb = useLoader( GLTFLoader, "/models/earth.glb" )
@@ -9,21 +23,21 @@ function Model(){
   )
 }
 
-function Box() {
+function Lights(){
+  const ref = useRef();
+  useHelper(ref, DirectionalLightHelper, 10, "red")
   return(
-    <mesh>
-      <boxGeometry args={[1]}/>
-      <meshBasicMaterial color={"hotpink"}/>
-    </mesh>
+    <directionalLight position={[1, 3, -1]} intensity={3}/>
   )
 }
 
 function App() {
   console.log("Canvas")
   return (
-    <Canvas>
+    <Canvas camera={{position: [0, 1, 2]}}>
         <color attach="background" args={["yellow"]}></color>
-        <Model/>
+        <Lights/>
+        <Box rotation-y={1}/>
     </Canvas>
   );
 }
