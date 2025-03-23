@@ -27,7 +27,8 @@ function Lights(){
   const ref = useRef();
   useHelper(ref, DirectionalLightHelper, 1, "red");
   return(
-    <directionalLight ref={ref} position={[1, 3, -1]} intensity={3}/>
+    // <directionalLight ref={ref} position={[1, 3, -1]} intensity={3}/>
+    <directionalLight position={[1, 3, -1]} intensity={3}/>
   )
 }
 
