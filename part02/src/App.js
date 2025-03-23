@@ -10,7 +10,6 @@ function Box(props) {
       <boxGeometry args={[1]}/>
       {/* <meshBasicMaterial color={"hotpink"}/> */}
       <meshStandardMaterial color={"hotpink"} wireframe/>
-
     </mesh>
   )
 }
@@ -39,6 +38,7 @@ function App() {
         <Lights/>
         <Box rotation-y={1}/>
         <Box position={[0, 0, -1]} rotation-y={1}/>
+        <Model/>
     </Canvas>
   );
 }
