@@ -5,7 +5,6 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 export function Earth() {
     const glb = useLoader(GLTFLoader, "/models/earth.glb");
 
-    // TODO useRef 확인
     const ref = useRef(null);
 
     useFrame((state, delta) => {

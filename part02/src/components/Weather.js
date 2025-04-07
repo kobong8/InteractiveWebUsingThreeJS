@@ -6,6 +6,7 @@ export function Weather(props) {
     const { position, weather } = props;
     const glb = useLoader(GLTFLoader, "/models/weather.glb");
 
+    // TODO useRef 확인
     const ref = useRef(null);
 
     // TODO useMemo의 역할
