@@ -11,6 +11,8 @@
 ```powershell
 > npm create vite@latest ch02-threejs -- --template vanilla
 
+--template is being deprecated, please use the interactive prompt instead.
+
 > npx
 > create-vite ch02-threejs vanilla
 
