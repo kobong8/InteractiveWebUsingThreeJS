@@ -26,3 +26,22 @@ export function Weather(props) {
         </mesh>
     );
 }
+
+// TODO 코드 작성 방식 차이
+// const Weather = (props) => {
+//     const { position, weather } = props;
+//     const glb = useLoader(GLTFLoader, '/models/weather.glb')
+
+//     const weatherModel = useMemo(() => {
+//         const clonedModel = glb.nodes[weather] || glb.nodes.cloud
+//         return clonedModel.clone()
+//     }, [weather])
+
+//     return(
+//         <mesh position={position}>
+//             <primitive object={weatherModel} />
+//         </mesh>
+//     )
+// }
+
+// export default Weather;
