@@ -1,25 +1,52 @@
-import { Canvas } from "@react-three/fiber";
-import { Lights } from "./Lights";
-import { Earth } from "./Earth";
-import { Weather } from "./Weather";
+import { useEffect, useState } from "react";
+import Earth from "./Earth";
+import Weather from "./Weather";
+import Lights from "./Lights";
+import { getCityWeather } from "../utils/weatherApi";
+import { cities } from "../utils/cities";
 
-export function Scene() {
-    return [
-        <Canvas camera={{ position: [0, 1, 5] }}>
-            <color
-                attach="background"
-                args={["rgb(67, 127, 240) 100%"]}
-            ></color>
+const API = process.env.REACT_APP_API_KEY;
+
+const Scene = () => {
+    const [content, setContent] = useState(null);
+
+    const getCitiesWeather = () => {
+        const promises = cities?.map((city) => {
+            return getCityWeather(city, API);
+        });
+
+        Promise.all(promises)
+            .then((weatherDataArray) => {
+                setContent(weatherDataArray);
+            })
+            .catch((error) => {
+                console.error("Error Api", error);
+            });
+    };
+
+    useEffect(() => {
+        getCitiesWeather();
+    }, []);
+
+    useEffect(() => {
+        console.log(content);
+    }, [content]);
+
+    return (
+        <>
             <Lights />
-            <Earth />
-            <Weather position={[-2, 0, 0]} weather={"clear"} />
-            <Weather position={[-0.75, 0, 0]} weather={"cloud"} />
-            <Weather position={[0.75, 0, 0]} weather={"clouds"} />
-            <Weather position={[2, 0, 0]} weather={"mist"} />
+            <Earth position={[0, -2, 0]} />
+            {content?.map((el, i) => {
+                return (
+                    <Weather
+                        key={i + "KEY"}
+                        position={[-1 + i * 0.5, 0, 0]}
+                        weather={el.weatherData?.weather[0]?.main?.toLowerCase()}
+                    />
+                );
+            })}
+        </>
+    );
+};
 
-            <Weather position={[-1.5, 1, 0]} weather={"rain2"} />
-            <Weather position={[0, 1, 0]} weather={"snow"} />
-            <Weather position={[1.5, 1, 0]} weather={"rain"} />
-        </Canvas>,
-    ];
-}
+export default Scene;
