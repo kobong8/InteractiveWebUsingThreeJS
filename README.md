@@ -23,7 +23,7 @@
 ◇  Select a variant:
 │  JavaScript
 │
-◇  Scaffolding project in C:\Users\Moon\OneDrive\Documents\00_Code_Data\02_Javascript\InteractiveWeb\ch02-threejs...
+◇  Scaffolding project in C:\Users\...\ch02-threejs...
 │
 └  Done. Now run:
 
